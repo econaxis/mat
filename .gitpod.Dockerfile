@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 
-RUN sudo apt-get update && sudo apt-get install -y \
+RUN apt-get update && apt-get install -y \
  xz-utils \
  curl \
  && rm -rf /var/lib/apt/lists/*
