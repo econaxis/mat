@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # ** [Optional] Uncomment this section to install additional packages. **
  RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
      && apt-get -y install --no-install-recommends build-essential cmake ninja-build
-RUN apt-get install clang-format clang-tidy clang-tools clang 
+RUN apt-get install -y clang-format clang-tidy clang-tools clang clang-tidy
 
  
 USER gitpod
