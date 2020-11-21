@@ -1,15 +1,21 @@
-FROM ubuntu:18.04
+FROM mcr.microsoft.com/vscode/devcontainers/base:buster
 
 
 RUN apt-get update && apt-get install -y \
  xz-utils \
  curl \
  && rm -rf /var/lib/apt/lists/*
-RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz \
- | tar -xJC . && \
- mv clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_10 && \
- echo ‘export PATH=/clang_10/bin:$PATH’ >> ~/.bashrc && \
- echo ‘export LD_LIBRARY_PATH=/clang_10/lib:$LD_LIBRARY_PATH’ >> ~/.bashrc
+ 
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.148.1/containers/debian/.devcontainer/base.Dockerfile
+
+
+
+
+# ** [Optional] Uncomment this section to install additional packages. **
+ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+     && apt-get -y install --no-install-recommends build-essential cmake ninja-build
+
+
  
 USER gitpod
 
