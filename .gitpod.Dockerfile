@@ -8,7 +8,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
  git \
  make \
  ninja-build \
- cpp-check \
+ cppcheck \
  software-properties-common \
  vim \
  wget \
