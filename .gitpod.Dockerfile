@@ -2,7 +2,7 @@ FROM gitpod/workspace-full
 
 
 
-RUN apt-get update && apt-get install -y \
+RUN sudo apt-get update && sudo apt-get install -y \
  xz-utils \
  curl \
  git \
@@ -12,12 +12,12 @@ RUN apt-get update && apt-get install -y \
  software-properties-common \
  vim \
  wget \
- && wget https://apt.llvm.org/llvm.sh && chmod +x llvm.sh && sudo ./llvm.sh
+ && sudo wget https://apt.llvm.org/llvm.sh && sudo chmod +x llvm.sh && sudo ./llvm.sh
 
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - &&\
-    apt-add-repository "deb https://apt.kitware.com/ubuntu/ bionic main" &&\
-    apt-get update &&\
-    apt-get install -y cmake
+RUN sudo wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | apt-key add - &&\
+    sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ bionic main" &&\
+    sudo apt-get update &&\
+    sudo apt-get install -y cmake
 
 RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz \
  | tar -xJC . && \
