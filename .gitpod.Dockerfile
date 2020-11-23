@@ -1,8 +1,8 @@
 FROM gitpod/workspace-full
 
-USER gitpod
 
-RUN sudo su && apt-get update && apt-get install -y \
+
+RUN apt-get update && apt-get install -y \
  xz-utils \
  curl \
  git \
@@ -24,6 +24,8 @@ RUN curl -SL https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0
  mv clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_10 && \
  echo ‘export PATH=/clang_10/bin:$PATH’ >> ~/.bashrc && \
  echo ‘export LD_LIBRARY_PATH=/clang_10/lib:$LD_LIBRARY_PATH’ >> ~/.bashrc
+ 
+ USER gitpod
  
 # Install custom tools, runtime, etc. using apt-get
 # For example, the command below would install "bastet" - a command line tetris clone:
