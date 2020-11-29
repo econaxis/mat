@@ -12,7 +12,7 @@ RUN sudo apt-get update && sudo apt-get install -y \
  software-properties-common \
  vim \
  wget \
- && sudo wget https://apt.llvm.org/llvm.sh && sudo chmod +x llvm.sh && sudo ./llvm.sh
+ ocrmypdf
 
 
 
